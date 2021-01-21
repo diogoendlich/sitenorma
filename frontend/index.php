@@ -64,33 +64,34 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 
 		body{
 
-			background:<?php echo $dazz_cs_design['dazz_cs_bg_clr']; ?> !important;
+			background:<?php echo $dazz_cs_design['dazz_cs_bg_clr']; ?> ;
 
-			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' !important;
+			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' ;
 
 		}
 
-	
-
+		main {
+			overflow-x: hidden;
+		}
 		
 
 		.content h2{
 
-			color:<?php echo $dazz_cs_design['dazz_headeline_ft_clr'] ?> !important;
+			color:<?php echo $dazz_cs_design['dazz_headeline_ft_clr'] ?> ;
 
-			font-size:<?php echo $dazz_cs_design['dazz_headline_ft_size'] ?>px !important;
+			font-size:<?php echo $dazz_cs_design['dazz_headline_ft_size'] ?>px ;
 
-			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' !important;
+			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' ;
 
 		}
 
 		.description{
 
-			color:<?php echo $dazz_cs_design['dazz_desc_ft_clr'] ?> !important;
+			color:<?php echo $dazz_cs_design['dazz_desc_ft_clr'] ?> ;
 
-			font-size:<?php echo $dazz_cs_design['dazz_desc_ft_size'] ?>px !important;
+			font-size:<?php echo $dazz_cs_design['dazz_desc_ft_size'] ?>px ;
 
-			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' !important;
+			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' ;
 
 		}
 
@@ -98,7 +99,7 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 
 			
 
-			color: <?php echo $dazz_cs_design['dazz_social_clr'] ?> !important;
+			color: <?php echo $dazz_cs_design['dazz_social_clr'] ?> ;
 
 			
 
@@ -106,17 +107,17 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 
 		.navbar-default .links > li > a:hover {
 
-				border-color:<?php echo $dazz_cs_design['dazz_social_clr'] ?> !important;
+				border-color:<?php echo $dazz_cs_design['dazz_social_clr'] ?> ;
 
 			}
 
 		.contact-info{
 
-			color: <?php echo $dazz_cs_design['dazz_desc_ft_clr'] ?> !important;
+			color: <?php echo $dazz_cs_design['dazz_desc_ft_clr'] ?> ;
 
-			font-size:<?php echo $dazz_cs_design['dazz_desc_ft_size'] ?>px !important;
+			font-size:<?php echo $dazz_cs_design['dazz_desc_ft_size'] ?>px ;
 
-			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' !important;
+			font-family:'<?php echo $dazz_cs_design['dazz_ft_st']; ?>' ;
 
 		}
 
@@ -124,9 +125,21 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 
 			.navbar-default .links > li > a {
 
-				border-color:<?php echo $dazz_cs_design['dazz_social_clr'] ?> !important;
+				border-color:<?php echo $dazz_cs_design['dazz_social_clr'] ?> ;
 
 			}
+
+			.content h2 {
+				font-size: 21px;
+			}
+			.content .description {
+				font-size: 14px;
+			}
+			.content .contact-info {
+				padding: 0;
+				font-size: 17px;
+			}
+			
 
 		}
 
@@ -141,80 +154,65 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 </head>
 
 <body>
+	<main>
+		<?php if($dazz_cs_design['dazz_cs_select_bg'] == "1") { ?>
+			<div id="overlay"></div> 
+		<?php } ?>
+		
+		<section class="content">
 
-<?php if($dazz_cs_design['dazz_cs_select_bg'] == "1") { ?>
+			<div class="container"> 
 
-<div id="overlay"></div> 
+				<?php if($dazz_cs_dashboard['display_logo'] == "0") { ?>
 
-<?php } ?>
+				<div class="text-center" style="display:block;overflow:hidden">
 
-	
+					<img src="<?php echo $dazz_cs_dashboard['cs_logo_url']; ?>" style="display: inline-block;margin-bottom:40px;" class="img-responsive" />
 
-    
-
-     <section class="content">
-
-        <div class="container"> 
-
-            <?php if($dazz_cs_dashboard['display_logo'] == "0") { ?>
-
-			<div class="text-center" style="display:block;overflow:hidden">
-
-				<img src="<?php echo $dazz_cs_dashboard['cs_logo_url']; ?>" style="display: inline-block;margin-bottom:40px;" class="img-responsive" />
-
-            </div>
-
-			<?php } ?>
-
-			<h2><?php echo $dazz_cs_dashboard['cs_headline']; ?></h2>
-
-            <p class="description"><?php echo $dazz_cs_dashboard['cs_description']; ?></p>
-
-			<ul class="contact-info">
-
-				<?php if($dazz_cs_contact['dazz_cs_address']!=""){ ?>
-
-					<li><i class="fa fa-map-marker"></i> <?php echo $dazz_cs_contact['dazz_cs_address']; ?></a></li>
+				</div>
 
 				<?php } ?>
 
-				<?php if($dazz_cs_contact['dazz_cs_no']!=""){ ?>
+				<h2><?php echo $dazz_cs_dashboard['cs_headline']; ?></h2>
 
-					<li><i class="fa fa-phone"> </i> <?php echo $dazz_cs_contact['dazz_cs_no']; ?> </i></a></li>
+				<p class="description"><?php echo $dazz_cs_dashboard['cs_description']; ?></p>
 
-				<?php } ?>
+				<ul class="contact-info">
 
-				<?php if($dazz_cs_contact['dazz_cs_email']!=""){ ?>
+					<?php if($dazz_cs_contact['dazz_cs_address']!=""){ ?>
 
-					<li><i class="fa fa-envelope-o"></i>  <?php echo $dazz_cs_contact['dazz_cs_email']; ?></a></li>
+						<li><i class="fa fa-map-marker"></i> <?php echo $dazz_cs_contact['dazz_cs_address']; ?></a></li>
 
-				<?php } ?>
+					<?php } ?>
 
-			</ul>
+					<?php if($dazz_cs_contact['dazz_cs_no']!=""){ ?>
 
-		 </div>
+						<li><i class="fa fa-phone"> </i> <?php echo $dazz_cs_contact['dazz_cs_no']; ?> </i></a></li>
 
-    </section>
+					<?php } ?>
 
- 
+					<?php if($dazz_cs_contact['dazz_cs_email']!=""){ ?>
 
-    <footer class="navbar navbar-default navbar-fixed-bottom">
+						<li><i class="fa fa-envelope-o"></i>  <?php echo $dazz_cs_contact['dazz_cs_email']; ?></a></li>
 
-    	<div class="container">
+					<?php } ?>
 
-            <div class="navbar-header" style="text-align:center">
+				</ul>
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
+			</div>
 
-                
+		</section>
 
-            </div>
+	</main>
+	<footer class="navbar navbar-default navbar-fixed-bottom">
 
-            <div class="collapse navbar-collapse">
+		<div class="container">
 
-                <ul class="list-inline links navbar-center">
+			<div class="collapse navbar-collapse">
 
-                    <?php if($dazz_cs_social['dazz_cs_fb']!=""){ ?>
+				<ul class="list-inline links navbar-center">
+
+					<?php if($dazz_cs_social['dazz_cs_fb']!=""){ ?>
 
 						<li><a href="<?php echo $dazz_cs_social['dazz_cs_fb']; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
 
@@ -238,17 +236,15 @@ $dazz_cs_contact = unserialize(get_option('dazz_cs_contact'));
 
 					<?php } ?>
 
-                </ul>
+				</ul>
 
-              
+				
 
-            </div>
+			</div>
 
-      	</div>
+		</div>
 
-    </footer>
-
-	
+	</footer>
 
     <?php 	
 
